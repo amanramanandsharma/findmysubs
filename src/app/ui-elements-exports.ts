@@ -156,7 +156,7 @@ const modules = [
   NzCommentModule,
   NzStepsModule,
   NzInputNumberModule,
-  NzDescriptionsModule
+  NzDescriptionsModule,
 ];
 
 @NgModule({

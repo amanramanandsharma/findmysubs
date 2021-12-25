@@ -17,12 +17,16 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { UiElementsModule } from './ui-elements-exports';
 // Imports for Echarts
 import { NgxEchartsModule } from 'ngx-echarts';
-import { OttPlatformComponent } from './shared/ott-platform/ott-platform.component';
+
+
+import { HomeComponent } from './home/home.component';
+import { OttCardsComponent } from './home/ott-cards/ott-cards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OttPlatformComponent
+    HomeComponent,
+    OttCardsComponent,
   ],
   imports: [
     BrowserModule,

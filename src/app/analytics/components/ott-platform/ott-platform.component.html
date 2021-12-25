@@ -1,4 +1,4 @@
-<nz-card class="ott-card" [nzExtra]="extraTemplate" [nzTitle]="titleTemplate">
+<nz-card class="ott-card" [nzTitle]="titleTemplate" nzHoverable="true">
   <div nz-row>
     <div nz-col nzFlex="100%">
       <nz-table
@@ -32,8 +32,33 @@
   <ng-template #titleTemplate>
     <img class="ott-image" [src]="data.image" />
   </ng-template>
+</nz-card>
 
-  <ng-template #extraTemplate>
-    <a>More</a>
+<nz-card
+  class="ott-card ott-card-recently-watched"
+  [nzTitle]="title2Template"
+  nzHoverable="true"
+>
+  <div nz-col>
+    <div nz-row>
+      <ng-container *ngFor="let item of moviesData">
+        <div nz-col class="margin-all">
+          <a
+            href="https://www.imdb.com/title/{{
+              item.imdbID
+            }}/?ref_=adv_li_tt"
+            target="_blank"
+          >
+            <nz-card>
+              <img class="poster-movie" src="{{ item.Poster }}" />
+            </nz-card>
+          </a>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <ng-template #title2Template>
+    <h2><strong>Recently Watched</strong></h2>
   </ng-template>
 </nz-card>
