@@ -1,0 +1,39 @@
+<nz-card class="ott-card" [nzExtra]="extraTemplate" [nzTitle]="titleTemplate">
+  <div nz-row>
+    <div nz-col nzFlex="100%">
+      <nz-table
+        #basicTable
+        [nzData]="listOfData"
+        [nzShowPagination]="false"
+        nzTableLayout="fixed"
+      >
+        <tbody>
+          <tr *ngFor="let data of data.data">
+            <td>
+              <span class="ott-tb-text">{{ data.plan }}</span>
+            </td>
+            <td>
+              Amount - <span class="ott-tb-text">₹{{ data.amount }}</span>
+            </td>
+            <td>
+              Due - <span class="ott-tb-text text-red">{{ data.due }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+  <div
+    echarts
+    [options]="getOverallTrafficTrendOptions"
+    class="pie-chart"
+  ></div>
+
+  <ng-template #titleTemplate>
+    <img class="ott-image" [src]="data.image" />
+  </ng-template>
+
+  <ng-template #extraTemplate>
+    <a>More</a>
+  </ng-template>
+</nz-card>

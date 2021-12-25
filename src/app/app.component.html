@@ -1,29 +1,35 @@
 <nz-layout class="layout">
   <nz-sider nzCollapsible nzBreakpoint="lg" [nzCollapsedWidth]="0">
-    <div class="logo"></div>
+    <div class="logo"><img height="100%" width="100%" src="assets/logo_main.PNG"></div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
       <li nz-menu-item>
         <i nz-icon nzType="user"></i>
-        <span>nav 1</span>
+        <span>Dashboard</span>
       </li>
       <li nz-menu-item>
         <i nz-icon nzType="video-camera"></i>
-        <span>nav 2</span>
+        <span>Analytics</span>
       </li>
       <li nz-menu-item>
         <i nz-icon nzType="upload"></i>
-        <span>nav 3</span>
+        <span>Curated For me</span>
       </li>
       <li nz-menu-item>
         <i nz-icon nzType="user"></i>
-        <span>nav 4</span>
+        <span>Account</span>
       </li>
     </ul>
   </nz-sider>
   <nz-layout>
     <nz-header></nz-header>
     <nz-content>
-      <div class="inner-content">Content</div>
+      <div class="inner-content">
+        <div nz-row [nzGutter]="[0,25]" *ngFor="let platform of ottPlatforms">
+          <div nz-col>
+           <app-ott-platform [data]=platform></app-ott-platform>
+          </div>
+        </div>
+      </div>
     </nz-content>
     <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
   </nz-layout>

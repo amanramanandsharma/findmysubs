@@ -15,10 +15,14 @@ registerLocaleData(en);
 
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { UiElementsModule } from './ui-elements-exports';
+// Imports for Echarts
+import { NgxEchartsModule } from 'ngx-echarts';
+import { OttPlatformComponent } from './shared/ott-platform/ott-platform.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OttPlatformComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,10 @@ import { UiElementsModule } from './ui-elements-exports';
     HttpClientModule,
     BrowserAnimationsModule,
     NzLayoutModule,
-    UiElementsModule
+    UiElementsModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
+    }),
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

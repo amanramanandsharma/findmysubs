@@ -39,6 +39,7 @@ import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
 import { NzStepsModule } from 'ng-zorro-antd/steps';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 
 import {
   DashboardOutline,
@@ -154,7 +155,8 @@ const modules = [
   NzAutocompleteModule,
   NzCommentModule,
   NzStepsModule,
-  NzInputNumberModule
+  NzInputNumberModule,
+  NzDescriptionsModule
 ];
 
 @NgModule({
