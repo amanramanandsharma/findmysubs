@@ -11,6 +11,12 @@ const routes: Routes = [
       import('./analytics/analytics.module').then((m) => m.AnalyticsModule)
   },
 
+  {
+    path: 'curated-for-me',
+    loadChildren: () =>
+      import('./curated/curated.module').then((m) => m.CuratedModule)
+  },
+
   {path: '**', redirectTo: '/dashboard'},
 ];
 

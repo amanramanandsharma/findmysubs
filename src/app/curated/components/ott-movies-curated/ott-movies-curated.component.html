@@ -1,0 +1,29 @@
+<nz-card class="ott-card" [nzTitle]="titleTemplate" nzHoverable="true">
+  <div nz-col>
+    <div nz-row >
+      <ng-container *ngFor="let item of moviesData">
+        <div nz-col class="margin-all">
+          <a
+            href="https://www.imdb.com/title/{{
+              item.imdbID
+            }}/?ref_=adv_li_tt"
+            target="_blank"
+          >
+            <nz-card>
+              <img class="poster-movie" src="{{ item.Poster }}" />
+            </nz-card>
+          </a>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+    
+  
+    <ng-template #titleTemplate>
+        <div class="text-center">
+            <img class="ott-image" [src]="data.image" />
+        </div>
+    </ng-template>
+  </nz-card>
+  
+  

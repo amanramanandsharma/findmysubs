@@ -1,15 +1,31 @@
-<nz-card class="ott-card" [nzTitle]="titleTemplate" nzHoverable=true [routerLink]="data.link">
+<nz-card
+  class="ott-card"
+  [nzTitle]="titleTemplate"
+  nzHoverable="true"
+>
   <div nz-row>
     <div nz-col>
-      <tr> Monthly Average Usage : <span [ngClass]="getOTTClass(data.data[0].usage)">{{ data.data[0].usage}}% </span></tr>
-      <tr> Plan Expires : {{ data.data[0].due}}</tr>
-      <tr class="text-center"><span class="plan-type">{{ data.data[0].plan}}</span></tr>
-      <br>
-      <hr>
+      <tr>
+        Monthly Average Usage :
+        <span [ngClass]="getOTTClass(data.data[0].usage)"
+          >{{ data.data[0].usage }}%
+        </span>
+      </tr>
+      <tr>
+        Plan Expires :
+        {{
+          data.data[0].due
+        }}
+      </tr>
+      <tr class="text-center">
+        <span class="plan-type">{{ data.data[0].plan }}</span>
+      </tr>
+      <br />
+      <hr />
     </div>
   </div>
   <ng-template #titleTemplate>
-    <div nz-row nzJustify="center" >
+    <div nz-row nzJustify="center">
       <img class="ott-image" [src]="data.image" />
     </div>
   </ng-template>
@@ -19,7 +35,15 @@
   </ng-template>
   <div nz-row nzJustify="center">
     <div>
-      <tr><span class="amount-ott-text">₹{{ data.data[0].amount}}</span></tr>
-      </div>
-      </div>
+      <tr>
+        <span class="amount-ott-text">₹{{ data.data[0].amount }}</span>
+      </tr>
+    </div>
+  </div>
+  <div nz-row nzJustify="center">
+    <div nz-col>
+      <br>
+      <button [routerLink]="data.link" nz-button nzType="primary">View Details</button>
+    </div>
+  </div>
 </nz-card>

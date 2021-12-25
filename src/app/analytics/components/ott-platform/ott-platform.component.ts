@@ -127,6 +127,5 @@ export class OttPlatformComponent implements OnInit {
         (error) => {}
       );
     }
-    console.log(this.moviesData)
   }
 }
