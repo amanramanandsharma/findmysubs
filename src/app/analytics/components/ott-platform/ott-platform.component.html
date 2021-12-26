@@ -23,14 +23,34 @@
       </nz-table>
     </div>
   </div>
-  <div
-    echarts
-    [options]="getOverallTrafficTrendOptions"
-    class="pie-chart"
-  ></div>
 
   <ng-template #titleTemplate>
     <img class="ott-image" [src]="data.image" />
+  </ng-template>
+</nz-card>
+
+<nz-card class="ott-card mt-2" [nzTitle]="title4Template" nzHoverable="true">
+  <div nz-row>
+    <div nz-col nzSpan="12">
+      <div echarts [options]="gauge_chart" class="gauge-chart"></div>
+    </div>
+    <div nz-col nzSpan="12">
+      <div echarts [options]="getOverAllConsupmtion" class="gauge-chart"></div>
+    </div>
+  </div>
+  <ng-template #title4Template>
+    <h2><strong>Stats</strong></h2>
+  </ng-template>
+</nz-card>
+
+<nz-card class="ott-card mt-2" [nzTitle]="title3Template" nzHoverable="true">
+  <div
+    echarts
+    [options]="getOverallTrafficTrendOptions"
+    class="graph-chart"
+  ></div>
+  <ng-template #title3Template>
+    <h2><strong>Daily Usage</strong></h2>
   </ng-template>
 </nz-card>
 
@@ -44,9 +64,7 @@
       <ng-container *ngFor="let item of moviesData">
         <div nz-col class="margin-all">
           <a
-            href="https://www.imdb.com/title/{{
-              item.imdbID
-            }}/?ref_=adv_li_tt"
+            href="https://www.imdb.com/title/{{ item.imdbID }}/?ref_=adv_li_tt"
             target="_blank"
           >
             <nz-card>

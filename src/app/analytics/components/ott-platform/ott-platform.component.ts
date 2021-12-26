@@ -11,6 +11,72 @@ export class OttPlatformComponent implements OnInit {
 
   @Input() data;
 
+  getOverAllConsupmtion  = {
+    title: {
+      text: 'Content Watched',
+      left: 'center'
+    },
+    legend: {
+      top: 'bottom',
+      show:false
+    },
+    toolbox: {
+      show: false,
+      feature: {
+        mark: { show: true },
+        dataView: { show: true, readOnly: false },
+        restore: { show: true },
+        saveAsImage: { show: true }
+      }
+    },
+    series: [
+      {
+        name: 'Nightingale Chart',
+        type: 'pie',
+        radius: [15, 75],
+        center: ['50%', '50%'],
+        roseType: 'area',
+        itemStyle: {
+          borderRadius: 8
+        },
+        data: [
+          { value: 40, name: 'Bollywood Movies' },
+          { value: 25, name: 'Regional TV Show' },
+          { value: 15, name: 'English TV Show' },
+          { value: 10, name: 'Hollywood Movies' },
+          { value: 10, name: 'Documentaries' },
+        ]
+      }
+    ]
+  };
+
+  gauge_chart  = {
+    title: {
+      text: 'Average Streaming Time',
+      left: 'center'
+    },
+    series: [
+      {
+        name: 'Minutes',
+        type: 'gauge',
+        progress: {
+          show: true
+        },
+        detail: {
+          valueAnimation: true,
+          formatter: '{value}'
+        },
+        data: [
+          {
+            value: 47,
+            name: 'Minutes'
+          }
+        ]
+      }
+    ]
+  };
+
+
   listOfData = [
     {
       plan: 'Premium Ultra HD',
