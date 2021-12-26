@@ -56,6 +56,7 @@ export class ServiceService {
   setPlatformData():void {
     this.ottPlatforms.push(this.duplicatePlatforms[this.index]);
     this.index++;
+    if(this.index == this.duplicatePlatforms.length) this.index = 0;
   }
 
 }
