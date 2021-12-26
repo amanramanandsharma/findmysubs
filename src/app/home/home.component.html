@@ -17,6 +17,7 @@
   </div>
 </div>
 
+<ng-container *ngIf="ottPlatforms.length > 0">
 <div nz-row [nzGutter]="[25, 25]">
   <div nz-col nzSpan="17">
     <div nz-row>
@@ -36,3 +37,13 @@
     </nz-card>
   </div>
 </div>
+</ng-container>
+
+<ng-container *ngIf="ottPlatforms.length == 0">
+  <div nz-row [nzGutter]="[25, 25]">
+    <div class="text-center" nz-col nzFlex="100%">
+      <br><br>
+     <h1><strong>Please Add Subscription Details</strong></h1>
+    </div>
+  </div>
+  </ng-container>
