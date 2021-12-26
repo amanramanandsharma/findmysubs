@@ -1,11 +1,11 @@
 <div nz-row [nzGutter]="[0, 25]">
-  <div nz-col nzFlex="100%">
+  <div nz-col nzXs="24" nzSm="24" nzMd="24" nzFlex="100%">
    <span class="top-title">Analytics</span>
     <hr>
   </div>
 </div>
 <div nz-row [nzGutter]="[0,25]" *ngFor="let platform of finalObject">
-    <div nz-col nzFlex="100%">
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzFlex="100%">
      <app-ott-platform [data]=platform></app-ott-platform>
     </div>
   </div>

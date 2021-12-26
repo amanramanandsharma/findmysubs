@@ -7,11 +7,7 @@ export class ServiceService {
 
   constructor() { }
   
-  ottPlatforms = [];
-
-  index = 0;
-
-  private duplicatePlatforms = [{
+  ottPlatforms = [{
     link: '/analytics/netflix',
     image: 'assets/Netflix_2015_logo.svg',
     data: [
@@ -34,7 +30,11 @@ export class ServiceService {
         usage: 10,
       },
     ],
-  },
+  },];
+
+  index = 0;
+
+  private duplicatePlatforms = [
   {
     link: '/analytics/hotstar',
     image: 'assets/hotstar_logo.png',

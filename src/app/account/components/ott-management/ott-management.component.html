@@ -1,32 +1,28 @@
-<nz-card
-  class="ott-card"
-  [nzTitle]="titleTemplate"
-  nzHoverable="true"
->
-  <div nz-row>
-    <div nz-col>
+<nz-card class="ott-card" [nzTitle]="titleTemplate" nzHoverable="true">
+  <div nz-row nzJustify="center">
+    <div>
       <tr>
-        Plan Expires :
-        {{
-          data.data[0].due
-        }}
+        <span
+          >Plan Expires : {{ data.data[0].due }}</span
+        >
       </tr>
-      <tr class="text-center">
-        <span class="plan-type">{{ data.data[0].plan }}</span>
-      </tr>
-      <br />
-      <hr />
     </div>
   </div>
+
+  <div nz-row nzJustify="center">
+    <div>
+      <tr>
+        <span class="plan-type">{{ data.data[0].plan }}</span>
+      </tr>
+    </div>
+  </div>
+
   <ng-template #titleTemplate>
     <div nz-row nzJustify="center">
       <img class="ott-image" [src]="data.image" />
     </div>
   </ng-template>
 
-  <ng-template #extraTemplate>
-    <a>More</a>
-  </ng-template>
   <div nz-row nzJustify="center">
     <div>
       <tr>

@@ -19,7 +19,7 @@
 
 <ng-container *ngIf="ottPlatforms.length > 0">
 <div nz-row [nzGutter]="[25, 25]">
-  <div nz-col nzSpan="17">
+  <div nz-col nzXs="24" nzSm="24" nzMd="17">
     <div nz-row>
       <ng-container *ngFor="let platform of ottPlatforms">
         <div nz-col class="margin-all">
@@ -28,9 +28,9 @@
       </ng-container>
     </div>
   </div>
-  <div nz-col nzSpan="7">
+  <div nz-col nzXs="24" nzSm="24" nzMd="7">
     <nz-card class="text-center">
-      <span><span class="total-spending">₹5400</span><br><strong>Total Monthly Spending</strong></span>
+      <span><span class="total-spending">₹1649</span><br><strong>Total Monthly Spending</strong></span>
     </nz-card>
     <nz-card>
       <div echarts [options]="getOverAllConsupmtion" class="pie-chart"></div>

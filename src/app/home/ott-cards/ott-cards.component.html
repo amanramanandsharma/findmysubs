@@ -1,29 +1,28 @@
-<nz-card
-  class="ott-card"
-  [nzTitle]="titleTemplate"
-  nzHoverable="true"
->
-  <div nz-row>
-    <div nz-col>
+<nz-card class="ott-card" [nzTitle]="titleTemplate" nzHoverable="true">
+  <div nz-row nzJustify="center">
+    <div>
       <tr>
-        Monthly Average Usage :
-        <span [ngClass]="getOTTClass(data.data[0].usage)"
-          >{{ data.data[0].usage }}%
-        </span>
+        <span>
+          Monthly Average Usage :
+          <span [ngClass]="getOTTClass(data.data[0].usage)"
+            >{{ data.data[0].usage }}%</span
+          ></span
+        >
       </tr>
-      <tr>
-        Plan Expires :
-        {{
-          data.data[0].due
-        }}
-      </tr>
-      <tr class="text-center">
-        <span class="plan-type">{{ data.data[0].plan }}</span>
-      </tr>
-      <br />
-      <hr />
     </div>
   </div>
+
+  <div nz-row nzJustify="center">
+    <div>
+      <tr>
+        <span>
+          Plan Expires :
+          <span class="plan-type">{{ data.data[0].plan }}</span></span
+        >
+      </tr>
+    </div>
+  </div>
+
   <ng-template #titleTemplate>
     <div nz-row nzJustify="center">
       <img class="ott-image" [src]="data.image" />
@@ -42,8 +41,10 @@
   </div>
   <div nz-row nzJustify="center">
     <div nz-col>
-      <br>
-      <button [routerLink]="data.link" nz-button nzType="primary">View Details</button>
+      <br />
+      <button [routerLink]="data.link" nz-button nzType="primary">
+        View Details
+      </button>
     </div>
   </div>
 </nz-card>

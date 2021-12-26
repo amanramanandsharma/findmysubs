@@ -1,47 +1,36 @@
 <nz-card class="ott-card" [nzTitle]="titleTemplate" nzHoverable="true">
-  <div nz-row>
-    <div nz-col nzFlex="100%">
-      <nz-table
-        #basicTable
-        [nzData]="listOfData"
-        [nzShowPagination]="false"
-        nzTableLayout="fixed"
-      >
-        <tbody>
-          <tr *ngFor="let data of data.data">
-            <td>
-              <span class="ott-tb-text">{{ data.plan }}</span>
-            </td>
-            <td>
-              Amount - <span class="ott-tb-text">₹{{ data.amount }}</span>
-            </td>
-            <td>
-              Due - <span class="ott-tb-text text-red">{{ data.due }}</span>
-            </td>
-          </tr>
-        </tbody>
-      </nz-table>
+  <div nz-row nzJustify="center">
+    <div nz-col class="text-center" nzXs="24" nzSm="24" nzMd="8">
+      <span class="ott-tb-text">{{ listOfData[0].plan }}</span>
+    </div>
+    <div nz-col class="text-center" nzXs="24" nzSm="24" nzMd="8">
+      <span class="ott-tb-text">₹{{ listOfData[0].amount }}</span>
+    </div>
+    <div nz-col class="text-center" nzXs="24" nzSm="24" nzMd="8">
+      <span class="ott-tb-text text-red">{{ listOfData[0].due }}</span>
     </div>
   </div>
 
   <ng-template #titleTemplate>
-    <img class="ott-image" [src]="data.image" />
+    <div class="text-center">
+      <img class="ott-image" [src]="data.image" />
+    </div>
   </ng-template>
 </nz-card>
 
 <nz-card class="ott-card mt-2" [nzTitle]="title4Template" nzHoverable="true">
   <div nz-row>
-    <div nz-col nzSpan="12">
+    <div nz-col nzXs="24" nzSm="24" nzMd="12">
       <div echarts [options]="gauge_chart" class="gauge-chart"></div>
     </div>
-    <div nz-col nzSpan="12">
+    <div nz-col nzXs="24" nzSm="24" nzMd="12">
       <div echarts [options]="getOverAllConsupmtion" class="gauge-chart"></div>
     </div>
   </div>
   <ng-template #title4Template>
-    <h2><strong>Stats</strong></h2>
+    <h2><strong>Statistics</strong></h2>
   </ng-template>
-</nz-card>
+</nz-card> 
 
 <nz-card class="ott-card mt-2" [nzTitle]="title3Template" nzHoverable="true">
   <div
@@ -59,21 +48,19 @@
   [nzTitle]="title2Template"
   nzHoverable="true"
 >
-  <div nz-col>
-    <div nz-row>
-      <ng-container *ngFor="let item of moviesData">
-        <div nz-col class="margin-all">
-          <a
-            href="https://www.imdb.com/title/{{ item.imdbID }}/?ref_=adv_li_tt"
-            target="_blank"
-          >
-            <nz-card>
-              <img class="poster-movie" src="{{ item.Poster }}" />
-            </nz-card>
-          </a>
-        </div>
-      </ng-container>
-    </div>
+  <div nz-row>
+    <ng-container *ngFor="let item of moviesData">
+      <div nz-col class="margin-all">
+        <a
+          href="https://www.imdb.com/title/{{ item.imdbID }}/?ref_=adv_li_tt"
+          target="_blank"
+        >
+          <nz-card>
+            <img class="poster-movie" src="{{ item.Poster }}" />
+          </nz-card>
+        </a>
+      </div>
+    </ng-container>
   </div>
 
   <ng-template #title2Template>
