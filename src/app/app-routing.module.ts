@@ -17,6 +17,12 @@ const routes: Routes = [
       import('./curated/curated.module').then((m) => m.CuratedModule)
   },
 
+  {
+    path: 'account-management',
+    loadChildren: () =>
+      import('./account/account.module').then((m) => m.AccountModule)
+  },
+
   {path: '**', redirectTo: '/dashboard'},
 ];
 

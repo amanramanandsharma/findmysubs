@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../service.service'
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private srv: ServiceService) { }
 
   getOverAllConsupmtion  = {
     title: {
@@ -55,47 +56,10 @@ export class HomeComponent implements OnInit {
     ]
   };
 
-  ottPlatforms = [
-    {
-      link:'/analytics/netflix',
-      image:'assets/Netflix_2015_logo.svg',
-      data:[
-        {
-          plan: 'Premium Ultra HD',
-          amount: 899,
-          due: '24th January 2022',
-          usage:78
-        }
-      ]
-    },
-    {
-      link:'/analytics/amazon-prime',
-      image:'assets/prime_logo.png',
-      data:[
-        {
-          plan: 'Prime User',
-          amount: 750,
-          due: '30th January 2022',
-          usage:10
-        }
-      ]
-    },
-    {
-      link:'/analytics/hotstar',
-      image:'assets/hotstar_logo.png',
-      data:[
-        {
-          plan: 'Basic',
-          amount: 1200,
-          due: '15th January 2022',
-          usage:12
-        }
-      ]
-    },
-    
-  ]
+  ottPlatforms = [];
 
   ngOnInit(): void {
+    this.ottPlatforms = this.srv.getPlatformData();
   }
 
 }

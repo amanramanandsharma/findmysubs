@@ -1,0 +1,138 @@
+<div nz-row [nzGutter]="[0, 25]">
+  <div nz-col nzFlex="100%">
+    <span class="top-title">Account Management</span>
+    <hr />
+  </div>
+</div>
+
+<div nz-row [nzGutter]="[25, 25]">
+  <div nz-col nzSpan="17">
+    <div nz-row>
+      <ng-container *ngFor="let platform of ottPlatforms">
+        <div nz-col class="margin-all">
+          <app-ott-management [data]="platform"></app-ott-management>
+        </div>
+      </ng-container>
+      <div nz-col class="margin-all">
+        <nz-card
+          (click)="showModal()"
+          class="ott-card add-more-card"
+          [nzTitle]="titleTemplate"
+          nzHoverable="true"
+        >
+          <div nz-row>
+            <div nz-col nzFlex="100%" class="text-center">
+              <img class="plus-image" src="assets/plus.png" />
+            </div>
+          </div>
+          <ng-template #titleTemplate>
+            <div nz-row nzJustify="center">
+              <h3><strong>Add More</strong></h3>
+            </div>
+          </ng-template>
+        </nz-card>
+      </div>
+    </div>
+  </div>
+  <div nz-col nzSpan="7">
+    <nz-card class="text-center mt-5">
+      <span><span class="total-spending">₹ {{avaiableAmount}}</span><br><strong>Available Wallet Balance</strong></span>
+      <div nz-row nzJustify="center">
+        <div nz-col nzFlex="100%">
+          <br>
+          <hr>
+          <br>
+          <button nz-button nzType="primary" (click)="showModal2()">Add More Amount</button>
+          <br>
+          <br>
+          <i nz-icon nzType="info-circle" nzTheme="outline"></i> <h6><strong>Add money to your Account for Direct Payments</strong></h6>
+        </div>
+      </div>
+    </nz-card>
+  </div>
+</div>
+
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Add New Subscription"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+>
+  <ng-container *nzModalContent>
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input">
+            <nz-select
+            id="gender"
+            formControlName="platform"
+            nzPlaceHolder="Select Subscription"
+          >
+            <nz-option nzValue="Amazon" nzLabel="Amazon"></nz-option>
+            <nz-option nzValue="Netflix" nzLabel="Netflix"></nz-option>
+            <nz-option nzValue="Hotstar" nzLabel="Hotstar"></nz-option>
+            <nz-option nzValue="Dropbox" nzLabel="Dropbox"></nz-option>
+            <nz-option nzValue="HBO Max" nzLabel="HBO Max"></nz-option>
+            <nz-option nzValue="Apple" nzLabel="Apple"></nz-option>
+          </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control nzErrorTip="Please input">
+              <nz-select
+              id="gender"
+              formControlName="plan"
+              nzPlaceHolder="Select Plan Type"
+            >
+              <nz-option nzValue="Premium Ultra" nzLabel="Premium Ultra"></nz-option>
+              <nz-option nzValue="Basic" nzLabel="Basic"></nz-option>
+              <nz-option nzValue="HD Mobile" nzLabel="HD Mobile"></nz-option>
+            </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        <nz-form-item>
+            <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Expires On</nz-form-label>
+            <nz-form-control [nzSm]="16" [nzXs]="24">
+              <nz-date-picker formControlName="datePicker"></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+      </form>
+  </ng-container>
+</nz-modal>
+
+
+<nz-modal
+  [(nzVisible)]="isVisible2"
+  nzTitle="Add Money to Wallet"
+  (nzOnCancel)="handleCancel2()"
+  (nzOnOk)="handleOk2()"
+>
+  <ng-container *nzModalContent>
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input amount!">
+          <nz-input-group nzPrefixIcon="dollar">
+            <input type="text" nz-input formControlName="userName" placeholder="Amount" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input">
+          <nz-select
+          id="gender"
+          formControlName="platform"
+          nzPlaceHolder="Select Payment Type"
+        >
+          <nz-option nzValue="Credit Card" nzLabel="Credit Card"></nz-option>
+          <nz-option nzValue="Debit Card" nzLabel="Debit Card"></nz-option>
+          <nz-option nzValue="UPI" nzLabel="UPI"></nz-option>
+          <nz-option nzValue="Net Banking" nzLabel="Net Banking"></nz-option>
+        </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    
+      </form>
+  </ng-container>
+</nz-modal>
+
+
