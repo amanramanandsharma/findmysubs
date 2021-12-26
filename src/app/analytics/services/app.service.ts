@@ -18,7 +18,7 @@ export class AppService {
   constructor(private http: HttpClient) {}
 
   public getDummyMovie(id): Observable<any> {
-    return this.http.get('http://www.omdbapi.com/?i='+id+'&apikey=6106ddc5').pipe(map(this.extractData));
+    return this.http.get('https://www.omdbapi.com/?i='+id+'&apikey=6106ddc5').pipe(map(this.extractData));
   }
 
 }
